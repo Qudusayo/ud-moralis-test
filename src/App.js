@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useMoralis } from "react-moralis";
+import { uauth } from "./connectors";
 
 function App() {
+  const { isAuthenticated, logout, authenticate } = useMoralis();
+
+  const userLogIn = async () => {
+    try {
+      let user = await authenticate(uauth);
+      console.log(user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const userLogOut = () => logout();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="jumbotron jumbotron-fluid">
+        <div className="container">
+          <h1 className="display-4">UD with Moralis</h1>
+        </div>
+        <div className="container">
+          {isAuthenticated ? (
+            <button className="btn lg btn-primary" onClick={userLogOut}>
+              Logout
+            </button>
+          ) : (
+            <button className="btn lg btn-primary" onClick={userLogIn}>
+              Login
+            </button>
+          )}
+        </div>
+      </div>
+    </>
   );
 }
 

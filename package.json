@@ -6,9 +6,16 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "@uauth/moralis": "^1.0.1",
+    "@walletconnect/web3-provider": "^1.7.8",
+    "@web3auth/web3auth": "^1.0.1",
+    "magic-sdk": "^8.1.1",
+    "moralis": "^1.8.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-scripts": "5.0.1",
+    "react-error-overlay": "6.0.9",
+    "react-moralis": "^1.4.0",
+    "react-scripts": "4.0.3",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -22,6 +29,9 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
   },
   "browserslist": {
     "production": [
